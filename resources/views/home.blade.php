@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Job Board - Home</title>
+        <link href="{{ asset('css/main.css') }}" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-    <h1>Welcome to the Job Board!</h1>
-    <p>Find your dream job or post job openings.</p>
-    <a href="{{ route('login') }}">Login</a>
-    <a href="{{ route('register') }}">Register</a>
-
+    @include('includes.navbar')
+    @yield('content')
 </body>
 </html>

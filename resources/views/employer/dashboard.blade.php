@@ -1,32 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-            {{-- CSRF Token --}}
-    <meta name="csrf-token" content="{{ csrf_token() }}"/>
-    <title>Company Dashboard</title>
-    <link href="{{ asset('css/dasboard.css') }}" type="text/css" rel="stylesheet"/>
-    
-</head>
-<body>
+@extends('layouts.app')
 
-    <div>
-        <h1>Welcome, {{ $employer->name }}</h1>
+@section('content')
+    <div class="mainContent">
+         @include('includes.nav')
+         <div class="yourpostedjobcontainer">
+             <div class="yourpostedjob">
+                 <h3>Your Posted Jobs:</h3>
+             </div>
+            @foreach ($jobs as $job)
+                <div class="jobcon">
+                    <div class="d">
+                        <p>Title: {{ $job->title }}</p>
+                        <p>Location: {{ $job->location }}</p>
+                    </div>
+                    <div class="d">
+                        <p>Job type: {{ $job->type }}</p>
+                        <p>Salary: {{ $job->salary }}</p>
+                    </div>
+                    <div class="d di {{ $job->status == 0 ? 'open' : 'closed' }}">
+                        <p>Status: {{ $job->status == 0 ? 'Open' : 'Closed' }}</p>
+                        
+                    </div>
+                    <div class="d i">
+                        <form action="{{ route('edit.job.status', $job->id) }}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <select name="status">
+                                <option value="0" {{ $job->status == 0 ? 'selected' : '' }}>Open</option>
+                                <option value="1" {{ $job->status == 1 ? 'selected' : '' }}>Closed</option>
+                            </select>
+                            <button type="submit">Update Status</button>
+                        </form>
+                    </div>
+                    <!-- Display other job details as needed -->
+                </div>
+            @endforeach
+         </div>
 
-        <h2>Company: {{ $employer->company_name }}</h2>
-
-        <h3>Your Posted Jobs:</h3>
-        @foreach ($jobs as $job)
-            <div>
-                <h4>{{ $job->title }}</h4>
-                <p>{{ $job->description }}</p>
-                <!-- Display other job details as needed -->
-            </div>
-        @endforeach
-        <a href="{{ route('logout') }}">Logout</a>
     </div>
-
-</body>
-</html>
+@endsection

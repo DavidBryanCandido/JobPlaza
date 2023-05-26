@@ -19,26 +19,35 @@ body {
 }
 .mainContent {
     width: 80%;
-    height: 90%;
+    height: 100%;
     position: absolute;
+    /* padding: 16px; */
     bottom: 0;
-    right: 30px;
+    right: 1.8%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
+    overflow: hidden;
 
     /* background-color: green; */
+}
+.innermain {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
 }
 .userDashboardNav {
     /* background-color: #004977; */
     /* background-color: red; */
     width: 100%;
-    height: 150px;
+    height: 10%;
     display: flex;
     align-items: center;
     padding-left: 20px;
     padding-right: 20px;
+    overflow: hidden;
 }
 .userDashboardNav img {
     height: 30px;
@@ -48,24 +57,29 @@ body {
     width: 16%;
     height: 100%;
     position: absolute;
+    overflow: hidden;
     bottom: 0;
     background-color: #ffffff;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     /* background-color: #243140; */
     /* padding: 16px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .userinfo {
-    width: 90%;
-    height: 25%;
+    width: 100%;
+    height: 310px;
     border-bottom: 1px solid #004977;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     /* background-color: aqua; */
-    padding: 16px;
-    margin-left: 16px;
+
+    /* padding: 16px; */
+    /* margin-left: 16px; */
 }
 .userinfo p,
 a {
@@ -76,15 +90,338 @@ a {
 
 .userpf {
     background-color: #004977;
-    width: 110px;
-    height: 110px;
+    width: 200px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 100px;
+    border-radius: 50%;
+    overflow: hidden;
     margin: 5px;
 }
 .userpf img {
-    width: 100px;
+    width: 200px;
+    height: 200px;
+}
+.userpf .logo {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+}
+.name {
+    width: 100%;
+    /* background-color: red; */
+}
+.innername {
+    padding: 16px;
+    background-color: ghostwhite;
+    margin-bottom: 16px;
+    margin-top: 16px;
+    border-radius: 10px;
+}
+.name p {
+    /* margin-bottom: 10px; */
+    font-size: 20px;
+}
+.profileContainer {
+    width: 30%;
+    height: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 16px;
+    background-color: #ffffff;
+}
+.navi {
+    width: 95%;
+    height: 70%;
+    margin-left: 16px;
+    margin-top: 20px;
+}
+.navi p {
+    padding: 10px;
+}
+.active {
+    background-color: ghostwhite;
+}
+.logoutCon {
+    width: 100%;
+    padding: 20px;
+    background-color: gainsboro;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logoutCon a {
+    font-size: 18px;
+}
+
+.employerdata {
+    margin-left: 7%;
+    width: 70%;
+    height: 100%;
+    background-color: #ffffff;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    padding: 16px;
+    align-items: center;
+}
+.innerEmployeeData {
+    width: 90%;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.postedJobs {
+    width: 30%;
     height: 100px;
+    background-color: #1bbcaa;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pendingJobs {
+    width: 30%;
+    height: 100px;
+    background-color: darksalmon;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+.closedJobs {
+    width: 30%;
+    height: 100px;
+    background-color: orange;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.pos {
+    border-radius: 10px;
+}
+.applicants {
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #3198cb;
+    border-radius: 10px;
+    /* justify-content: center; */
+    align-items: center;
+}
+.jobaplicants {
+    width: 100%;
+    /* background-color: #ffffff; */
+    margin-bottom: 16px;
+    padding: 16px;
+}
+.jobapplicantsdata {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+.jobtitle {
+    background-color: cornflowerblue;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.jobtitle p {
+    font-size: 20px;
+    color: gainsboro;
+}
+.navContainer {
+    width: 100%;
+    height: 16%;
+    /* background-color: red; */
+}
+.innernav {
+    height: 70%;
+    width: 100%;
+    border-radius: 10px;
+    background-color: ghostwhite;
+    /* background-color: #1bbcaa; */
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: center; */
+}
+.innernav p {
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #3198cb;
+}
+.yourpostedjobcontainer {
+    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    padding: 16px;
+}
+.jobcon {
+    background-color: #3198cb;
+    margin-bottom: 16px;
+    margin-top: 16px;
+    border-radius: 5px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 120px;
+}
+.d {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+}
+.d p {
+    margin: 10px;
+}
+.di {
+    width: 10%;
+    height: 100%;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+}
+.i {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.open {
+    background-color: rgb(13, 192, 13);
+}
+
+.closed {
+    background-color: rgb(255, 0, 0);
+}
+
+/* create job */
+.card {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 90%;
+    border-radius: 10px;
+    padding: 16px;
+    background-color: #ffffff;
+}
+.card-header {
+    width: 100%;
+    height: 50px;
+}
+.card-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.innerbody {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.f {
+    width: 35%;
+    height: 100%;
+    background-color: ghostwhite;
+    padding: 16px;
+    padding-top: 0;
+    border-radius: 16px;
+}
+.job-decs {
+    width: 60%;
+    height: 100%;
+    background-color: #004977;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+.desc {
+    width: 100%;
+    padding: 16px;
+    padding-top: 0;
+    padding-left: 0;
+}
+.desc p {
+    color: white;
+    font-size: 20px;
+}
+.textArea {
+    max-width: 100%;
+    min-height: 500px;
+    max-height: 75vh;
+    padding: 16px;
+    font-size: 16px;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 16px;
+    box-sizing: border-box;
+    outline: none;
+    border: 0px;
+    font-size: 20px;
+    border-bottom: 3px solid #005a91;
+}
+.inputCon-field {
+    width: 100%;
+    margin-top: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline: none;
+    border-bottom: 3px solid #005a91;
+    font-size: 20px;
+    padding: 10px;
+}
+.btn {
+    width: 100%;
+}
+.button {
+    background-color: #1bbcaa;
+    color: white;
+    border: 0px;
+    padding: 10px;
+    font-size: large;
+    margin-top: 30px;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 100%;
+}
+.button:hover {
+    background-color: #3198cb;
+    color: floralwhite;
+}
+.text-danger {
+    padding: 10px;
+    color: coral;
 }

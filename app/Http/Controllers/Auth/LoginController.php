@@ -7,6 +7,7 @@ use App\Models\Employer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\Job;
 
 class LoginController extends Controller
 {
@@ -31,7 +32,7 @@ class LoginController extends Controller
             //check password
             if (Hash::check($request->password, $employer->password)) {
                 $request->session()->put('LoggedUser', $employer->id);
-                return redirect()->route('employer.dashboard');
+                return redirect()->route('layout.app');
             } else {
                 return back()->with('fail', 'Incorrect password');
             }

@@ -11,13 +11,13 @@ class Job extends Model
     use HasFactory, SoftDeletes;
 
     // Relationship with Employer model
-    public function employers()
+    public function employer()
     {
         return $this->belongsTo(Employer::class);
     }
 
     // Relationship with Application model
-    public function applications()
+    public function application()
     {
         return $this->hasMany(Application::class);
     }

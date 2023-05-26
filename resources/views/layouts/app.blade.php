@@ -7,8 +7,10 @@
         {{-- CSRF Token --}}
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <title>Company Dashboard</title>
+    <link href="{{ asset('css/dashboard.css') }}" type="text/css" rel="stylesheet"/>
 </head>
 <body>
+    @include('includes.sideDashboard')
     @yield('content')
 </body>
 </html>
