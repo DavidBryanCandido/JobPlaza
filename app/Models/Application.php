@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Application extends Model
 {
     use HasFactory, SoftDeletes;
+    protected $fillable = ['name', 'email', 'resume', 'status'];
 
     // Relationship with Job model
     public function job()

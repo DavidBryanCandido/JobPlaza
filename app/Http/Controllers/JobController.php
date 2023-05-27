@@ -86,35 +86,54 @@ class JobController extends Controller
     }
 
 
+
 public function apply(Request $request, $id)
 {
+    $job = Job::findOrFail($id);
+
     // Validate the form data
-    $request->validate([
+    $validatedData = $request->validate([
         'name' => 'required',
         'email' => 'required|email',
-        'resume' => 'required|mimes:pdf,doc,docx|max:2048', // Limit allowed file types and size
+        'resume' => 'required|file|max:2048|mimes:pdf,doc,docx',
     ]);
 
-    // Get the uploaded file
-    $resumeFile = $request->file('resume');
-
-    // Generate a unique name for the file
-    $resumeFileName = time() . '_' . $resumeFile->getClientOriginalName();
-
-    // Store the uploaded file in the public disk
-    $resumeFile->storeAs('public/resumes', $resumeFileName);
-
-    // Create a new application
+    // Save the application data
     $application = new Application();
-    $application->job_id = $id;
-    $application->name = $request->name; // Set the name from the form data
-    $application->email = $request->email; // Set the email from the form data
-    $application->resume = $resumeFileName; // Save the file name in the database
+    $application->job_id = $job->id;
+    $application->name = $validatedData['name'];
+    $application->email = $validatedData['email'];
+
+    // Save the resume file
+    if ($request->hasFile('resume')) {
+        $resume = $request->file('resume');
+        $resumePath = $resume->store('resumes');
+        $application->resume = $resumePath;
+    }
+
     $application->save();
 
-    // Optionally, you can redirect the user to a thank-you page or the job listing page
-    return redirect()->route('job.index')->with('success', 'Application submitted successfully.');
+    // Optionally, you can redirect the user to a thank-you page or the job details page
+    return redirect()->route('jobs.index', $job->id)->with('success', 'Application submitted successfully.');
 }
+
+public function viewApplicants($id)
+{
+    $job = Job::findOrFail($id);
+
+    // Retrieve the applications for the job
+    $applications = Application::where('job_id', $job->id)->get();
+
+    // Update the resume file path for each application
+    foreach ($applications as $application) {
+        $resumePath = 'storage/app/public' . $application->resume;
+        $application->resume = Storage::url($resumePath);
+    }
+
+    return view('employer.applicants', compact('job', 'applications'));
+}
+
+
 
 
 

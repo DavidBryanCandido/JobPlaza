@@ -13,7 +13,7 @@
     <div class="container">
         <div class="header">
             <div class="back">
-                <a href="{{ route('home') }}"><img src="/img/close.png" alt="close"></a>
+                <a href="{{ route('jobs.index') }}"><img src="/img/close.png" alt="close"></a>
             </div>  
             <div class="text">
                 <p>HELLO & WELCOME</p>

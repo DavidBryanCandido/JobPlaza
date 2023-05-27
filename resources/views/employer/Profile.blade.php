@@ -53,7 +53,8 @@
                     <div class="jobapplicantsdata">
                         @foreach ($employer->jobs as $job)
                             <div class="jobtitle">
-                                <p>Applicants for "{{ $job->title }}": {{ $job->applications->count() }}</p>
+                                <p>Applicants for "{{ $job->title }}": {{ $job->application->count() }}</p>
+                                <p><a href="{{ route('job.applicants', $job->id) }}">View all Applicants</a></p>
                             </div>
                         @endforeach                        
                     </div>

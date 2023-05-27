@@ -9,6 +9,7 @@ use App\Http\Middleware\AuthCheck;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EmployerController;
+use App\Http\Controllers\ApplicationController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/', [JobController::class, 'index'])->name('jobs.index');
@@ -36,6 +37,10 @@ Route::group(['middleware'=>['AuthCheck']],function () {
     Route::post('employer/upload-logo', [EmployerController::class, 'uploadLogo'])->name('upload.logo');
 
     Route::put('/jobs/{job}/edit-status', [JobController::class, 'editStatus'])->name('edit.job.status');
+    Route::get('job/{id}/applicants', [JobController::class, 'viewApplicants'])->name('job.applicants');
+Route::post('/application/{application}/approve', [ApplicationController::class, 'approve'])->name('application.approve');
+Route::post('/application/{application}/deny', [ApplicationController::class, 'deny'])->name('application.deny');
+Route::delete('/application/{application}/delete', [ApplicationController::class, 'delete'])->name('application.delete');
 
 
     // Add other authenticated routes here

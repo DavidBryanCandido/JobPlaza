@@ -1,4 +1,5 @@
-<form  action="{{ route('job.apply', ['id' => $job->id]) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('job.apply', $job->id) }}" method="POST" enctype="multipart/form-data">
+
     @csrf
     <div class="form-group">
         <label for="name">Name</label>
