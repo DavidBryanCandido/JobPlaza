@@ -15,12 +15,12 @@
             <div class="rLP">
                 @if(session()->has('LoggedEmployer'))
                     <p class="{{ request()->is('employer/profile') ? 'active' : '' }}">
-                        <a href="{{ route('employer.profile') }}">Profile1</a>
+                        <a href="{{ route('employer.profile') }}">Your Profile   |  </a>
                     </p>
                     <a href="{{ route('logout') }}">Logout</a>
                 @elseif(session()->has('LoggedApplicant'))
                     <p class="{{ request()->is('applicant/profile') ? 'active' : '' }}">
-                        <a href="{{ route('applicant.profile') }}">Profile 2</a>
+                        <a href="{{ route('applicant.profile') }}">Your Profile   |  </a>
                     </p>
                     <a href="{{ route('applicant.logout') }}">Logout</a>
                 @else
