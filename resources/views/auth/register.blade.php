@@ -23,6 +23,7 @@
             <div class="logo">
                 <img src="/img/JobPlaza_logov2.png" alt="JobPaza">
             </div>
+            
         </div>
         <div class="body">
             <h1><span>Create</span> your account</h1>

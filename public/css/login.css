@@ -14,25 +14,27 @@ body {
 }
 
 .container {
-    width: 35%;
+    width: 50%;
     height: 90vh;
     margin: auto;
     background-color: #005a91;
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     overflow: hidden;
+    display: flex;
+    flex-direction: row;
 }
 .header {
-    height: 30%;
-    width: 100%;
+    height: 100%;
+    width: 50%;
     background: linear-gradient(to bottom, #005991, #3198cb);
 
     display: flex;
     flex-direction: column;
 }
 .body {
-    height: 70%;
-    width: 100%;
+    height: 100%;
+    width: 50%;
     background-color: aliceblue;
 }
 .logo {
@@ -41,20 +43,21 @@ body {
 .logo img {
     height: 50px;
     width: auto;
-    margin-left: 18%;
+    margin-left: 25px;
 }
 .back {
     width: 100%;
+    border-bottom: 1px solid #3198cb;
 }
 .back img {
-    height: 30px;
-    width: 30px;
-    float: right;
+    height: 40px;
+    width: 40px;
+    float: left;
     margin: 16px;
 }
 .text {
     margin: auto;
-    margin-top: 16px !important;
+    margin-top: 80px !important;
     margin-bottom: 16px !important;
     display: flex;
     flex-direction: column;
@@ -87,7 +90,7 @@ body {
     color: #3198cb;
 }
 .input {
-    width: 70%;
+    width: 75%;
     /* background-color: #005a91; */
     height: 70%;
     display: flex;
@@ -126,7 +129,6 @@ input[type="password"] {
     border: 0px;
     border-bottom: 4px solid #005a91;
 }
-
 .btn {
     background-color: #1bbcaa;
     color: white;
