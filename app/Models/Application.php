@@ -16,4 +16,9 @@ class Application extends Model
     {
         return $this->belongsTo(Job::class);
     }
+     // Relationship with Applicant model
+    public function applicant()
+    {
+        return $this->belongsTo(Applicant::class, 'applicant_id');
+    }
 }

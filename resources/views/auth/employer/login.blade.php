@@ -24,12 +24,20 @@
             <div class="logo">
                 <img src="/img/JobPlaza_logov2.png" alt="JobPaza">
             </div>
-
+            <div class="navEmployer-Applicant">
+                <div class=" con {{ request()->is('employer/login') ? 'applican-employer' : '' }}">
+                    <a href="{{ route('employer.login') }}" class=" {{ request()->is('employer/login') ? 'aa' : 'non' }}" >Employer Login</a>
+    
+                </div>
+                <div class=" con {{ request()->is('applicant/login') ? 'applican-employer' : '' }}">
+                    <a href="{{ route('applicant.login') }}" class=" {{ request()->is('applicant/login') ? 'aa' : 'non' }}">Applicant Login</a>
+                </div>
+            </div>
         </div>
         <div class="body">
             <h1><span>Login</span> your account</h1>
             <div class="input">
-                <form action="{{ route('login.check') }}" method="post">
+                <form action="{{ route('employer.login.check') }}" method="post">
                     @csrf
                     @if (Session::get('fail'))
                         <div class="alert alert-danger">
@@ -45,7 +53,7 @@
                 </form>
             </div>
 
-            <a class="account" href="{{ route('register') }}">I don't have an account, <span>create new</span></a>
+            <a class="account" href="{{ route('employer.register') }}">I don't have an account, <span>create new</span></a>
         </div>
     </div>
 

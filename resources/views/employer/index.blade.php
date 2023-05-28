@@ -8,7 +8,7 @@
                     @foreach ($jobs as $job)
                         <div class="jobCard">
                             <div class="status">
-                                <p class="{{$job->status == 0 ? 'Open' : 'Closed' }}  }}">{{ $job->status == 0 ? 'Open' : 'Closed' }}</p>
+                                <p class="{{ $job->status == 0 ? 'Open' : 'Closed' }}">{{ $job->status == 0 ? 'Open' : 'Closed' }}</p>
                             </div>
                             <div class="jobTitle">
                                 <h1>{{ $job->title }}</h1>
@@ -28,8 +28,7 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="right" id="job-details">
-                </div>
+                <div class="right" id="job-details"></div>
             </div>
         </div>
     </div>

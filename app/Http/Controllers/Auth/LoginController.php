@@ -39,18 +39,18 @@ class LoginController extends Controller
         }
     }
 
-    public function logout()
-    {
-        if (session()->has('LoggedUser')) {
-            session()->pull('LoggedUser');
-            return redirect('/auth/login');
-        }
-    }
+    // public function logout()
+    // {
+    //     if (session()->has('LoggedUser')) {
+    //         session()->pull('LoggedUser');
+    //         return redirect('/');
+    //     }
+    // }
 
     public function dashboard()
     {
         // Get the logged-in employer's ID
-        $employerId = session('LoggedUser');
+        $employerId = session('LoggedEmployer');
 
         // Retrieve the employer and their posted jobs
         $employer = Employer::findOrFail($employerId);

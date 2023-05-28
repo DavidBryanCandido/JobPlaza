@@ -9,7 +9,7 @@ class ProfileController extends Controller
     public function show()
     {
         // Get the logged-in employer's ID
-        $employerId = session('LoggedUser');
+        $employerId = session('LoggedEmployer');
 
         // Retrieve the employer data
         $employer = Employer::findOrFail($employerId);

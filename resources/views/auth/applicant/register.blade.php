@@ -23,12 +23,21 @@
             <div class="logo">
                 <img src="/img/JobPlaza_logov2.png" alt="JobPaza">
             </div>
+            <div class="navEmployer-Applicant">
+                <div class=" con {{ request()->is('employer/register') ? 'applican-employer' : '' }}">
+                    <a href="{{ route('employer.register') }}" class=" {{ request()->is('employer/register') ? 'aa' : 'non' }}" >Employer Register</a>
+    
+                </div>
+                <div class=" con {{ request()->is('applicant/register') ? 'applican-employer' : '' }}">
+                    <a href="{{ route('applicant.register') }}" class=" {{ request()->is('applicant/register') ? 'aa' : 'non' }}">Applicant Register</a>
+                </div>
+            </div>
             
         </div>
         <div class="body">
             <h1><span>Create</span> your account</h1>
             <div class="input">
-                <form action="{{ route('register.save') }}" method="POST">
+                <form action="{{ route('applicant.register.save') }}" method="POST">
                     @if (Session::get('success'))
                         <div class="alert alert-success">
                             {{ Session::get('success') }}
@@ -40,10 +49,6 @@
                         </div>
                     @endif
                     @csrf
-                    <input type="text" name="company_name" id="" placeholder="Company Name" value="{{ old('name') }}">
-                    <span class="text-danger"> @error('name'){{ $message }} @enderror</span>
-                    <input type="text" name="website" id="" placeholder="website Link" value="{{ old('name') }}">
-                    <span class="text-danger"> @error('name'){{ $message }} @enderror</span>
                     <input type="text" name="name" id="" placeholder="Name" value="{{ old('name') }}">
                     <span class="text-danger"> @error('name'){{ $message }} @enderror</span>
                     <input type="email" name="email" id="" placeholder="Email Address" value="{{ old('email') }}">
@@ -54,7 +59,7 @@
                     <button class="btn" type="submit">Sign Up</button>
                 </form>
             </div>
-            <a class="account" href="{{ route('login') }}">I already have an account <span>sign in</span></a>
+            <a class="account" href="{{ route('applicant.login') }}">I already have an account <span>sign in</span></a>
         </div>
     </div>
 </body>

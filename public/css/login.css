@@ -153,3 +153,38 @@ input[type="password"] {
 .text-danger {
     color: red;
 }
+.navEmployer-Applicant {
+    background-color: #005a91;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 26px;
+    padding: 16px;
+    border-radius: 10px;
+}
+
+.applican-employer {
+    background-color: #3198cb !important;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border-bottom-right-radius: 5px !important;
+    border-bottom-left-radius: 5px !important;
+    color: aliceblue !important;
+}
+.aa {
+    text-decoration: none;
+    color: aliceblue;
+}
+.non {
+    text-decoration: none;
+    color: #ccc;
+}
+.con {
+    padding: 10px;
+    background-color: #3198cb4f;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-bottom: 16px;
+    margin-top: 16px;
+}

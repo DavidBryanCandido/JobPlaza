@@ -19,7 +19,7 @@ class JobController extends Controller
     public function create(Request $request)
     {
         // Get the logged-in employer's ID
-        $employerId = session('LoggedUser');
+        $employerId = session('LoggedEmployer');
 
         // Validate the job data
         $request->validate([
@@ -89,6 +89,10 @@ class JobController extends Controller
 
 public function apply(Request $request, $id)
 {
+    if (!session()->has('LoggedApplicant')) {
+        return redirect()->route('applicant.login')->with('error', 'You need to log in to apply for a job.');
+    }
+
     $job = Job::findOrFail($id);
 
     // Validate the form data
@@ -103,6 +107,7 @@ public function apply(Request $request, $id)
     $application->job_id = $job->id;
     $application->name = $validatedData['name'];
     $application->email = $validatedData['email'];
+    $application->applicant_id = session('LoggedApplicant');
 
     // Save the resume file
     if ($request->hasFile('resume')) {
@@ -114,8 +119,11 @@ public function apply(Request $request, $id)
     $application->save();
 
     // Optionally, you can redirect the user to a thank-you page or the job details page
-    return redirect()->route('jobs.index', $job->id)->with('success', 'Application submitted successfully.');
+    return redirect()->route('jobs.index')->with('success', 'Application submitted successfully.');
 }
+
+
+
 
 public function viewApplicants($id)
 {

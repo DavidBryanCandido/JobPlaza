@@ -13,14 +13,20 @@
                 </ul>
             </div>
             <div class="rLP">
-                @if(session()->has('LoggedUser'))
+                @if(session()->has('LoggedEmployer'))
                     <p class="{{ request()->is('employer/profile') ? 'active' : '' }}">
-                        <a href="{{ route('employer.profile') }}">Profile</a>
+                        <a href="{{ route('employer.profile') }}">Profile1</a>
                     </p>
+                    <a href="{{ route('logout') }}">Logout</a>
+                @elseif(session()->has('LoggedApplicant'))
+                    <p class="{{ request()->is('applicant/profile') ? 'active' : '' }}">
+                        <a href="{{ route('applicant.profile') }}">Profile 2</a>
+                    </p>
+                    <a href="{{ route('applicant.logout') }}">Logout</a>
                 @else
-                    <a href="{{ route('login') }}">Login</a>
+                    <a href="{{ route('employer.login') }}">Login</a>
                     <p><a href="#">/</a></p>
-                    <a href="{{ route('register') }}">Register</a>
+                    <a href="{{ route('employer.register') }}">Register</a>
                 @endif
             </div>
         </div>
