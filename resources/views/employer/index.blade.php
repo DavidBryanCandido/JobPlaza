@@ -1,11 +1,12 @@
 @extends('home')
+
 @section('content')
     <div class="indexBG">
         <div class="jobboardCon">
             @include('includes.searchbar')
             <div class="indexLRcontainer">
                 <div class="left">
-                    @foreach ($jobs as $job)
+                    @forelse ($jobs as $job)
                         <div class="jobCard">
                             <div class="status">
                                 <p class="{{ $job->status == 0 ? 'Open' : 'Closed' }}">{{ $job->status == 0 ? 'Open' : 'Closed' }}</p>
@@ -26,7 +27,9 @@
                             </div>
                             <button class="apply-btn" data-job-id="{{ $job->id }}">Apply</button>
                         </div>
-                    @endforeach
+                    @empty
+                        <p>No jobs found.</p>
+                    @endforelse
                 </div>
                 <div class="right" id="job-details"></div>
             </div>

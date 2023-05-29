@@ -67,11 +67,40 @@ class JobController extends Controller
         return redirect()->back()->with('success', 'Job status updated successfully.');
     }
 
-    public function index()
-    {
+public function index(Request $request)
+{
+    $query = $request->input('query');
+    $location = $request->input('location');
+    $jobs = [];
+
+    if (!empty($query) && !empty($location)) {
+        $jobs = Job::where(function ($queryBuilder) use ($query, $location) {
+            $queryBuilder->where(function ($subQueryBuilder) use ($query) {
+                $subQueryBuilder->where('title', 'like', '%' . $query . '%')
+                    ->orWhereHas('employer', function ($employerQuery) use ($query) {
+                        $employerQuery->where('company_name', 'like', '%' . $query . '%');
+                    });
+            })
+            ->where('location', 'like', '%' . $location . '%');
+        })->get();
+    } elseif (!empty($query)) {
+        $jobs = Job::where(function ($queryBuilder) use ($query) {
+            $queryBuilder->where('title', 'like', '%' . $query . '%')
+                ->orWhereHas('employer', function ($employerQuery) use ($query) {
+                    $employerQuery->where('company_name', 'like', '%' . $query . '%');
+                });
+        })->get();
+    } elseif (!empty($location)) {
+        $jobs = Job::where('location', 'like', '%' . $location . '%')->get();
+    } else {
         $jobs = Job::where('status', 0)->get();
-        return view('employer.index', compact('jobs'));
     }
+
+    return view('employer.index', compact('jobs'));
+}
+
+
+
 
     public function show($id)
     {
